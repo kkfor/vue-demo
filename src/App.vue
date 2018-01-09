@@ -6,10 +6,12 @@
 </template>
 
 <script>
+import vModel from './components/vModel'
 import datePanel from './components/datePanel'
 export default {
   components: {
-    datePanel
+    datePanel,
+    vModel
   },
   data() {
     return {
