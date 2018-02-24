@@ -2,7 +2,7 @@
   <div id="app">
     <div>
       123
-      <router-link to="vmodel"></router-link>
+      <router-link to="vmodel">v-model</router-link>
     </div>
     <router-view></router-view>
   <!-- <DatePicker type="date" placeholder="Select date" style="width: 200px" v-model="aaa"></DatePicker>
