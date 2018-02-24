@@ -1,24 +1,18 @@
 <template>
-  <input type="text" v-model="data">
+  <model v-model="data"></model>  
 </template>
-<script>
-  export default {
-    props:["value"],
-    model: {
-      prop:'value',
-      event: 'dfd'
-    },
-    computed: {
-      data: {
-        get() {
-          return this.value
-        },
-        set(value) {
-          this.$emit('dfd',value)
-          return value
-        }
-      }
-    }
 
+<script>
+import model from './model'
+
+export default {
+  data() {
+    return {
+      data: 123
+    }
+  },
+  components: {
+    model
   }
+}  
 </script>
