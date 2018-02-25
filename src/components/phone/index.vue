@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="phone">
     <phone v-model="phoneNum"></phone>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
 }
 </script>
 <style scpoed>
-  div {
+  .phone {
     width: 200px;
   }
 </style>
