@@ -1,5 +1,7 @@
 <template>
-  <input type="text" v-model="data">
+<div>
+  <input type="text" v-model="data"> {{data}}
+</div>
 </template>
 <script>
   export default {
