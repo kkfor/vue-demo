@@ -2,6 +2,8 @@
   <div id="app">
     <div>
       <router-link to="vmodel">v-model</router-link>
+      <router-link to="buttonDisabled">buttonDisabled</router-link>
+      <router-link to="phone">phone</router-link>
     </div>
     <router-view></router-view>
   <!-- <DatePicker type="date" placeholder="Select date" style="width: 200px" v-model="aaa"></DatePicker>
@@ -39,4 +41,13 @@ export default {
 }
 
 </script>
+
+<style>
+#app {
+  padding: 20px;
+}
+a {
+  margin: 0 5px;
+}
+</style>
 
