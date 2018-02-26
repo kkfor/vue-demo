@@ -4,6 +4,7 @@
       <router-link to="vmodel">v-model</router-link>
       <router-link to="buttonDisabled">buttonDisabled</router-link>
       <router-link to="phone">phone</router-link>
+      <router-link to="phone1">phone1</router-link>
     </div>
     <router-view></router-view>
   <!-- <DatePicker type="date" placeholder="Select date" style="width: 200px" v-model="aaa"></DatePicker>

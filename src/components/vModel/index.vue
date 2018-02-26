@@ -1,5 +1,8 @@
 <template>
-  <model v-model="data"></model>  
+  <div>
+    <model v-model="data"></model>
+    <input type="text" v-model="data">
+  </div>
 </template>
 
 <script>
