@@ -1,14 +1,14 @@
 <template>
   <div v-clickoutside="close">
-    <Input readonly v-model="value" @click.native="show = !show"></Input>
-    <ul class="more" v-if="show">
-      <li v-for="item in num">
+    <Input readonly v-model="showValue" @click.native="show = !show"></Input>
+    <ul class="more" v-show="show">
+      <li v-for="(item, index) in itemArr" v-if="item.status" :key="index">
         <Row>
           <Col span="18">
-            <Input type="text" placeholder="电话号码" size="small"></Input>
+            <Input type="text" placeholder="电话号码" size="small" @on-change="handleInput(index, arguments)">{{item.value}}</Input>
           </Col>
           <Col span="4" offset="1">
-            <Button type="ghost" size="small">删除</Button>
+            <Button type="ghost" size="small" @click="handleDel(index)">删除</Button>
           </Col>
         </Row>
       </li>
@@ -29,8 +29,17 @@ export default {
   },
   data() {
     return {
+      showValue: this.value,
       show: false,
-      num: 2
+      index: 1,
+      itemArr: [
+        {
+          value: '',
+          index: 1,
+          status: true
+        }
+      ],
+      inArr: []
     };
   },
   methods: {
@@ -38,8 +47,40 @@ export default {
       this.show = false;
     },
     handleAdd() {
-      this.num++
+      this.index++
+      this.itemArr.push({
+        value: '',
+        index: this.index,
+        status: true
+      })
+    },
+    handleDel(i) {
+      this.itemArr[i].status = false
+      this.forValue()
+    },
+    handleInput(i, e) {
+      this.itemArr[i].value = e[0].target.value
+      this.forValue()
+    },
+    forValue() {
+      this.inArr = []
+      this.itemArr.forEach((v, i) => {
+        if(v.status) {
+          this.inArr.push(v)
+        }
+      })
+      this.showValue = ''
+      this.inArr.forEach((v, i) => {
+        this.showValue += v.value
+        if(i !== this.inArr.length-1) {
+          this.showValue += ';'
+        }
+      })
+      console.log(this.showValue)
+      // this.showValue = str
+      // this.$emit('input', this.showValue)
     }
+
   }
 };
 </script>
