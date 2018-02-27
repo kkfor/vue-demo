@@ -1,6 +1,6 @@
 <template>
   <div v-clickoutside="close">
-    <Input readonly v-model="showValue" @click.native="show = !show"></Input>
+    <Input readonly v-model="midStr" @click.native="show = !show"></Input>
     <ul class="more" v-show="show">
       <li v-for="(item, index) in itemArr" v-if="item.status" :key="index">
         <Row>
@@ -17,8 +17,8 @@
           <Button type="dashed" long @click="handleAdd" icon="plus-round" size="small">添加</Button>
         </Col>
       </Row>
-      <Row>
-        <Col span="12">
+      <Row style="text-align:center;">
+        <Col span="24">
           <Button type="primary" @click="submit" size="small">确定</Button>
         </Col>
       </Row>
@@ -27,6 +27,7 @@
 </template>
 <script>
 import clickoutside from "directives/clickoutside";
+
 export default {
   props: ["value"],
   directives: {
@@ -69,7 +70,20 @@ export default {
       this.forValue()
     },
     submit() {
+      this.midStr = ''
+      this.inArr.forEach((v, i) => {
+        if(v.value !== '222') {
+          this.$Message.error('请输入正确的电话号码')
+          return
+        } else {
+          this.midStr += v.value
+          if(i !== this.inArr.length-1) {
+            this.midStr += ';'
+          }
+        }
+      })
       this.showValue = this.midStr
+      this.$emit('input', this.showValue)
     },
     forValue() {
       this.inArr = []
@@ -78,15 +92,6 @@ export default {
           this.inArr.push(v)
         }
       })
-      this.midStr = ''
-      this.inArr.forEach((v, i) => {
-        this.midStr += v.value
-        if(i !== this.inArr.length-1) {
-          this.midStr += ';'
-        }
-      })
-      // this.showValue = str
-      // this.$emit('input', this.showValue)
     }
 
   }

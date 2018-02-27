@@ -14,6 +14,11 @@ export default {
       data: 123
     }
   },
+  created() {
+    setTimeout(() => {
+      this.data = 3333333
+    }, 1000)
+  },
   components: {
     model
   }
