@@ -1,6 +1,8 @@
 <template>
   <div v-clickoutside="close">
-    <Input readonly v-model="midStr" @click.native="show = !show"></Input>
+    <FormItem :prop="midStr" :rules="{required: true, message: 'Item can not be empty', trigger: 'blur'}">
+      <Input readonly v-model="midStr" @click.native="show = !show"></Input>
+    </FormItem>
     <ul class="more" v-show="show">
       <li v-for="(item, index) in itemArr" v-if="item.status" :key="index">
         <Row>

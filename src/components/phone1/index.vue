@@ -20,10 +20,6 @@ export default {
       formData: {
         phone: ''
       },
-      rules: {
-        // phone: [{required: true, message: '手机号'}]
-        aaa:[{required: true, message: 'dfdf'}]
-      },
       phoneNum: '123456;121'
     }
   },

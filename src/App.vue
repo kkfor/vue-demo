@@ -5,6 +5,7 @@
       <router-link to="buttonDisabled">buttonDisabled</router-link>
       <router-link to="phone">phone</router-link>
       <router-link to="phone1">phone1</router-link>
+      <router-link to="/vueRouter">vueRouter</router-link>
     </div>
     <router-view></router-view>
   <!-- <DatePicker type="date" placeholder="Select date" style="width: 200px" v-model="aaa"></DatePicker>
