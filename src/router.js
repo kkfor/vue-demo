@@ -7,6 +7,7 @@ import buttonDisabled from './components/buttonDisabled'
 import phone from './components/phone'
 import phone1 from './components/phone1'
 import vueRouter from './components/vueRouter'
+import aaa from './components/vueRouter/aaa'
 
 Vue.use(Router)
 
@@ -17,6 +18,13 @@ export default new Router({
     {path: '/phone', component: phone},
     {path: '/phone1', component: phone1},
     {path: '/buttonDisabled', component: buttonDisabled},
-    {path: '/vueRouter', component: vueRouter}
+    {
+      path: '/vueRouter', 
+      component: vueRouter,
+      children: [{
+        path: 'aaa',
+        component: aaa
+      }]
+    }
   ]
 })
