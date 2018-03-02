@@ -18,7 +18,7 @@ v-model默认绑定value属性，赋值为data
 ```javascript
 <foo v-model="data"></foo>
 ```
-子组件通过props接触父组件的value属性值，也就是v-model绑定的属性值
+子组件通过props接收父组件的value属性值，也就是v-model绑定的值
 ```javascript
 props:['value']
 ```
