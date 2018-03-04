@@ -10,15 +10,14 @@ vue中v-model的写法如下
 ```javascript
 <input :value="data" @input="data = $event.target.value"></input>
 ```
-- input中value属性设置值为data。  
-- 绑定输入事件，$event.target.value获取input中输入的内容，赋值给data
+- input中设置value属性，值为data。  
+- input中绑定输入事件，每次输入$event.target.value获取input中输入的内容，传递给value属性
 ### 自定义组件v-model用法
 父组件绑定v-model
-v-model默认绑定value属性，赋值为data
 ```javascript
 <foo v-model="data"></foo>
 ```
-子组件通过props接收父组件的value属性值，也就是v-model绑定的值
+子组件通过props添加value属性值来接收父组件v-model的值
 ```javascript
 props:['value']
 ```
