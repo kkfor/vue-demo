@@ -3,6 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Select from './plugins'
+
+Vue.use(Select)
 
 Vue.config.productionTip = false
 
